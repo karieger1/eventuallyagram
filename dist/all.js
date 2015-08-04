@@ -12644,11 +12644,138 @@ return jQuery;
 var $ = require("jquery");
 var Backbone = require("backbone");
 Backbone.$ = $;
+
+var commentmodel = require("../models/commentmodel.js");
+
+module.exports = Backbone.Collection.extend({
+	model: commentmodel,
+	url: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-comments"
+
+});
+
+},{"../models/commentmodel.js":8,"backbone":1,"jquery":3}],5:[function(require,module,exports){
+"use strict";
+
+var $ = require("jquery");
+var Backbone = require("backbone");
+Backbone.$ = $;
+
+var photomodel = require("../models/photomodel.js");
+
+module.exports = Backbone.Collection.extend({
+	model: photomodel,
+	url: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-photos"
+
+});
+
+},{"../models/photomodel.js":9,"backbone":1,"jquery":3}],6:[function(require,module,exports){
+"use strict";
+
+var $ = require("jquery");
+var Backbone = require("backbone");
+Backbone.$ = $;
+
+var usermodel = require("../models/usermodel.js");
+
+module.exports = Backbone.Collection.extend({
+	model: usermodel,
+	url: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-users"
+
+});
+
+},{"../models/usermodel.js":10,"backbone":1,"jquery":3}],7:[function(require,module,exports){
+"use strict";
+
+var $ = require("jquery");
+var Backbone = require("backbone");
+Backbone.$ = $;
 var _ = require("backbone/node_modules/underscore");
 
-$(document).ready(function () {});
+$(document).ready(function () {
 
-},{"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}]},{},[4])
+	var userModel = require("./models/usermodel.js");
+	var userCollection = require("./collections/usercollection.js");
+
+	var commentModel = require("./models/commentmodel.js");
+	var commentCollection = require("./collections/commentcollection.js");
+
+	var photoModel = require("./models/photomodel.js");
+	var photoCollection = require("./collections/photocollection.js");
+
+	var userList = new userCollection();
+	var photoList = new photoCollection();
+	var commentList = new commentCollection();
+});
+
+var Pages = Backbone.Router.extend({
+	routes: {
+		"": "login",
+		"login": "login",
+		"register": "register",
+		"home": "home"
+	}
+
+});
+
+},{"./collections/commentcollection.js":4,"./collections/photocollection.js":5,"./collections/usercollection.js":6,"./models/commentmodel.js":8,"./models/photomodel.js":9,"./models/usermodel.js":10,"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}],8:[function(require,module,exports){
+"use strict";
+
+var $ = require("jquery");
+var Backbone = require("backbone");
+Backbone.$ = $;
+
+module.exports = Backbone.Model.extend({
+	defaults: {
+		_id: null,
+		userId: null,
+		username: null,
+		imgId: null,
+		text: null
+	},
+	urlRoot: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-comments",
+	idAttribute: "_id"
+});
+
+},{"backbone":1,"jquery":3}],9:[function(require,module,exports){
+"use strict";
+
+var $ = require("jquery");
+var Backbone = require("backbone");
+Backbone.$ = $;
+
+module.exports = Backbone.Model.extend({
+	defaults: {
+		_id: null,
+		userId: null,
+		username: null,
+		url: null,
+		caption: null,
+		numLikes: 0
+	},
+	urlRoot: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-photos",
+	idAttribute: "_id"
+});
+
+},{"backbone":1,"jquery":3}],10:[function(require,module,exports){
+"use strict";
+
+var $ = require("jquery");
+var Backbone = require("backbone");
+Backbone.$ = $;
+
+module.exports = Backbone.Model.extend({
+	defaults: {
+		_id: null,
+		userId: null,
+		username: null,
+		imgId: null,
+		text: null
+	},
+	urlRoot: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-comments",
+	idAttribute: "_id"
+});
+
+},{"backbone":1,"jquery":3}]},{},[7])
 
 
 //# sourceMappingURL=all.js.map

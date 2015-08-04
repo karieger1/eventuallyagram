@@ -5,7 +5,7 @@ Backbone.$ = $;
 var commentmodel = require("../models/commentmodel.js");
 
 module.exports = Backbone.Collection.extend({
-	model: commentmodel
+	model: commentmodel,
 	url: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-comments"
 
 });

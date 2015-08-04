@@ -5,7 +5,7 @@ Backbone.$ = $;
 var usermodel = require("../models/usermodel.js");
 
 module.exports = Backbone.Collection.extend({
-	model: usermodel
+	model: usermodel,
 	url: "http://tiny-pizza-server.herokuapp.com/collections/tacotown-users"
 
 });
